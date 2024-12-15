@@ -4,7 +4,6 @@ docker exec -it mysql-db mysql -u root -p
 
 #password : rootpass
 
-
 CREATE DATABASE irs_data;
 
 USE irs_data;
@@ -26,16 +25,44 @@ CREATE TABLE returns (
     FOREIGN KEY (taxpayer_id) REFERENCES taxpayers(id)
 );
 
-
 INSERT INTO taxpayers (name, age, state) VALUES
 ('John Doe', 35, 'California'),
-('Jane Smith', 42, 'Texas');
+('Jane Smith', 42, 'Texas'),
+('Robert Brown', 29, 'New York'),
+('Emily Davis', 54, 'Florida'),
+('Michael Wilson', 47, 'Illinois'),
+('Sarah Johnson', 31, 'Washington'),
+('Chris Lee', 40, 'Nevada'),
+('Anna Walker', 38, 'Oregon'),
+('David Carter', 50, 'Arizona'),
+('Laura Martinez', 26, 'Colorado'),
+('Paul Harris', 60, 'Ohio'),
+('Lisa Moore', 33, 'Virginia'),
+('James Taylor', 45, 'Alabama'),
+('Olivia Anderson', 27, 'Georgia'),
+('Sophia White', 39, 'New Jersey');
 
 INSERT INTO returns (taxpayer_id, year, tax_paid, refund, filing_type) VALUES
 (1, 2023, 15000, 2000, 'individual'),
-(2, 2023, 50000, 10000, 'corporate');
-
+(2, 2023, 50000, 10000, 'corporate'),
+(3, 2023, 12000, 1500, 'individual'),
+(4, 2022, 20000, 3000, 'individual'),
+(4, 2023, 21000, 2800, 'individual'),
+(5, 2022, 45000, 5000, 'corporate'),
+(5, 2023, 47000, 5200, 'corporate'),
+(6, 2023, 18000, 2500, 'individual'),
+(7, 2023, 22000, 4000, 'individual'),
+(8, 2023, 14000, 1800, 'individual'),
+(9, 2022, 30000, 3500, 'corporate'),
+(9, 2023, 32000, 4000, 'corporate'),
+(10, 2023, 9000, 1200, 'individual'),
+(11, 2022, 25000, 2200, 'individual'),
+(12, 2023, 27000, 3100, 'individual'),
+(13, 2023, 15500, 2100, 'individual'),
+(14, 2022, 33000, 4500, 'corporate'),
+(15, 2023, 19000, 2800, 'individual');
 
 exit
+
 
 docker compose restart
